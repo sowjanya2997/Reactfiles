@@ -7,7 +7,7 @@ class Tbody extends React.Component {
         const values = this.props.values;
         let renderedRows = values.map((val,index)=>
         
-        <Row key = {index} isHeader={false} values={val} />
+        <Row key = {index} isHeader={false} values={val} onViewClick={this.props.onViewClick}/>
         );
         return (
             <tbody>

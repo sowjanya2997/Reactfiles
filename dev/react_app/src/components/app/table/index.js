@@ -4,23 +4,22 @@ import Thead from "./thead";
 import Tbody from "./tbody";
 
 class Table extends React.Component {
-    constructor() {
-        super();
-        this.values = [
-            ['Tony Stark', 'Iron Man', 'Avengers'],
-            ['Peter Parker', 'Spider man', 'Avengers'],
-            ['Bruce Wayne', 'Batman','Justice League']
-        ];
+    constructor(props) {
+        super(props)
+        this.onViewClick = this.onViewClick.bind(this)
+    }
+    onViewClick(id){
+        this.props.history.push(`/view/${id}`)
 
-        this.headers = ['Name','Alias','Team'];
 
     }
+    
 
     render() {
         return (
         <table>
-            <Thead values={this.headers}/>
-            <Tbody values={this.values}/>
+            <Thead values={this.props.headers}/>
+            <Tbody values={this.props.values} onViewClick={this.onViewClick}/>
 
         </table>
         )
