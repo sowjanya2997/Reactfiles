@@ -14,7 +14,6 @@ class Row extends React.Component {
         console.log(this.props.values)
         const ID = this.props.values[0]
         this.props.onViewClick(ID)
-
     }
     render () {
         const values =this.props.values;
@@ -23,12 +22,14 @@ class Row extends React.Component {
         );
 
         let actionButton;
+        let editButton;
         if(this.props.isHeader) {
             actionButton = (<Column isHeader={this.props.isHeader}>Action</Column>)
         }
         else{
             actionButton = (<Column isHeader={this.props.isHeader} value="button here">
                 <button onClick={this.onViewClick}>View</button>
+                <button onClick={this.onViewClick}>Edit</button>
             </Column>)
         }
         return (<tr>{renderedCols}{actionButton}</tr>)
